@@ -1,6 +1,7 @@
 package br.com.livrariasl.controller;
 
 import br.com.livrariasl.dto.LivrosDTO;
+import br.com.livrariasl.entity.Genero;
 import br.com.livrariasl.entity.LivrosEntity;
 import br.com.livrariasl.repository.LivrosRepository;
 import org.springframework.beans.BeanUtils;
@@ -38,6 +39,11 @@ public class LivrosController {
         return new ResponseEntity(HttpStatus.OK);
     }
 
+
+    @GetMapping("/genero/{genero}")
+    public List<LivrosEntity> buscarLivrosPorGenero(@PathVariable Genero genero) {
+        return livrosRepository.findByGenero(genero);
+    }
 
 
 
