@@ -33,6 +33,12 @@ public class LivrosController {
         return new ResponseEntity(livrosRepository.findAll(), HttpStatus.OK);
     }
 
+    @GetMapping("/pegar/{id}")
+    public ResponseEntity<LivrosEntity> pegarPorId(@PathVariable Long id) {
+        return new ResponseEntity(livrosRepository.findById(id),HttpStatus.OK);
+    }
+
+
     @DeleteMapping("/delete/{id}")
     public ResponseEntity<?> deletarPorId(@PathVariable Long id) {
         livrosRepository.deleteById(id);
