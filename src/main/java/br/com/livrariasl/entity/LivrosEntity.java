@@ -24,6 +24,14 @@ public class LivrosEntity {
 
     private String imagemUrl;
 
+    @Column(length = 5000)
+    private String sinopse;
+
+    private String valor;
+
+    @Column(length = 5000)
+    private String linkLivro;
+
     @Enumerated(EnumType.STRING)
     private Genero genero;
 
