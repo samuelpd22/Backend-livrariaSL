@@ -6,8 +6,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.List;
-
 @Entity
 @Table ( name = "tb_livrosSL")
 @Getter
@@ -23,8 +21,5 @@ public class LivrosEntity {
     private String titulo;
 
     private String imagemUrl;
-
-    @Enumerated(EnumType.STRING)
-    private Genero genero;
 
 }
