@@ -1,5 +1,9 @@
 package br.com.livrariasl.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -28,9 +32,15 @@ public class LivrosEntity {
 
     private String valor;
 
+    @Column(length = 1000)
     private String linkLivro;
 
     @Enumerated(EnumType.STRING)
     private Genero genero;
+
+    @ManyToOne(optional = false)
+    @JoinColumn(name = "autor_id", nullable = false)
+
+    private AutorEntity autor;
 
 }
