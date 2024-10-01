@@ -40,6 +40,7 @@ public class LivrosEntity {
 
     @ManyToOne(optional = false)
     @JoinColumn(name = "autor_id", nullable = false)
+    @JsonBackReference // Para evitar loop infinito
 
     private AutorEntity autor;
 

@@ -9,5 +9,6 @@ import java.util.List;
 public interface LivrosRepository extends JpaRepository<LivrosEntity, Long> {
 
     List<LivrosEntity> findByGenero(Genero genero);
+    List<LivrosEntity> findByAutorId(Long autorId);
 
 }
