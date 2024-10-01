@@ -21,6 +21,7 @@ import java.util.Set;
 @NoArgsConstructor
 @Entity
 @Table (name = "autor")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"}) // Ignora propriedades indesejadas
 public class AutorEntity {
 
     @Id
@@ -29,9 +30,12 @@ public class AutorEntity {
 
     private String nome;
 
+    private String imageAutorUrl;
 
-    @OneToMany(mappedBy = "autor")
-    @JsonIgnore // Ignora a lista de livros
+
+    @OneToMany(mappedBy = "autor", fetch = FetchType.EAGER)
+    //@JsonIgnore // Ignora a lista de livro
+    @JsonManagedReference // Gerencia a relação para evitar loop
     private List<LivrosEntity> livros;
 
 }
