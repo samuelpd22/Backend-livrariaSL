@@ -1,5 +1,9 @@
 package br.com.livrariasl.dto;
 
 
-public record AutorDTO(String nome) {
+import br.com.livrariasl.entity.LivrosEntity;
+
+import java.util.List;
+
+public record AutorDTO(String nome, String imageAutorUrl) {
 }
