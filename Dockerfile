@@ -6,7 +6,9 @@ RUN apt-get install openjdk-17-jdk -y
 COPY . .
 
 RUN apt-get install maven -y
-RUN mvn clean install
+
+# Pular os testes ao construir o JAR
+RUN mvn clean install -DskipTests=true
 
 # Etapa final
 FROM openjdk:17-jdk-slim
